@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cxb1tg14hccra"
-path="res://.godot/imported/orbii.glb-dc5eb8f5084f3cc390a6f68fb2c4f46b.scn"
+path="res://.godot/imported/orbii.glb-8ca87590b6cf30c0d83e7a05c1bcf809.scn"
 
 [deps]
 
-source_file="res://orbii.glb"
-dest_files=["res://.godot/imported/orbii.glb-dc5eb8f5084f3cc390a6f68fb2c4f46b.scn"]
+source_file="res://assets/orbii.glb"
+dest_files=["res://.godot/imported/orbii.glb-8ca87590b6cf30c0d83e7a05c1bcf809.scn"]
 
 [params]
 

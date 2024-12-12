@@ -23,7 +23,7 @@ XrSimulator="*res://addons/xr-simulator/XRSimulator.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-xr-toggle/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
 
 [input]
 

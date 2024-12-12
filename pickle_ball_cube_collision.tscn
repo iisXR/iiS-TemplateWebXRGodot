@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://dcvg02wi7kdjk"]
+[gd_scene load_steps=19 format=4 uid="uid://dcvg02wi7kdjk"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_bh2ri"]
-[ext_resource type="Texture2D" uid="uid://co20kw8v5f5py" path="res://orbii_Metal007_2K-JPG_Color.jpg" id="2_endfv"]
-[ext_resource type="Texture2D" uid="uid://dhfryd7qo8ft" path="res://orbii_Metal007_2K-JPG_Metalness-Metal007_2K-JPG_Roughness.jpg" id="3_g0ive"]
-[ext_resource type="Texture2D" uid="uid://bc01dyafeeicg" path="res://orbii_Metal007_2K-JPG_Displacement.jpg" id="4_3twcq"]
+[ext_resource type="Texture2D" uid="uid://co20kw8v5f5py" path="res://assets/orbii_Metal007_2K-JPG_Color.jpg" id="2_endfv"]
+[ext_resource type="Texture2D" uid="uid://dhfryd7qo8ft" path="res://assets/orbii_Metal007_2K-JPG_Metalness-Metal007_2K-JPG_Roughness.jpg" id="3_g0ive"]
+[ext_resource type="Texture2D" uid="uid://bc01dyafeeicg" path="res://assets/orbii_Metal007_2K-JPG_Displacement.jpg" id="4_3twcq"]
+[ext_resource type="Script" path="res://pickupballanimation_player.gd" id="5_2m5e7"]
+[ext_resource type="AudioStream" uid="uid://cmgdllf0ucnih" path="res://assets/Strange drops.mp3" id="6_uey12"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f53gw"]
 
@@ -145,21 +147,94 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qurfq")
 
-[sub_resource type="Animation" id="Animation_muoda"]
-resource_name = "CubeAction"
-length = 1.25
-loop_mode = 1
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ome4y"]
+emission = Color(1, 1, 0.168627, 1)
+emission_energy_multiplier = 2.38
+
+[sub_resource type="Animation" id="Animation_gr0ym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cube")
+tracks/0/path = NodePath("rotator:surface_material_override/0:emission_enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0, 1, 0.0666667, 1, -0.0341774, 0.0341774, -0.0306619, 0.998361, 0.1, 1, -0.081635, 0.081635, -0.0688096, 0.990927, 0.133333, 1, -0.131576, 0.131576, -0.102622, 0.977161, 0.166667, 1, -0.183376, 0.183376, -0.131719, 0.956764, 0.2, 1, -0.237006, 0.237006, -0.154398, 0.929418, 0.233333, 1, -0.29087, 0.29087, -0.171849, 0.89513, 0.266667, 1, -0.344258, 0.344258, -0.183971, 0.85389, 0.3, 1, -0.396444, 0.396444, -0.190729, 0.805784, 0.333333, 1, -0.4467, 0.4467, -0.192156, 0.750995, 0.366667, 1, -0.494542, 0.494542, -0.187307, 0.689763, 0.4, 1, -0.538905, 0.538905, -0.177701, 0.622564, 0.466667, 1, -0.614744, 0.614744, -0.145534, 0.472229, 0.633333, 1, -0.70664, 0.70664, -0.0114764, 0.034463, 0.666667, 1, 0.705811, -0.705811, -0.01912, 0.0574161, 0.8, 1, 0.63806, -0.63806, -0.129337, 0.411134, 0.833333, 1, 0.606271, -0.606271, -0.150773, 0.492076, 0.9, 1, 0.528176, -0.528176, -0.180514, 0.639902, 0.933333, 1, 0.482953, -0.482953, -0.188668, 0.705632, 0.966667, 1, 0.434458, -0.434458, -0.191945, 0.765278, 1, 1, 0.383364, -0.383364, -0.190131, 0.818483, 1.03333, 1, 0.33088, -0.33088, -0.181739, 0.864874, 1.06667, 1, 0.277428, -0.277428, -0.167944, 0.904357, 1.1, 1, 0.22374, -0.22374, -0.148823, 0.936874, 1.13333, 1, 0.170527, -0.170527, -0.124519, 0.962464, 1.16667, 1, 0.118476, -0.118476, -0.0952338, 0.981253, 1.2, 1, 0.0692843, -0.0692843, -0.0599431, 0.993381, 1.23333, 1, 0.0227917, -0.0227917, -0.0204474, 0.999271, 1.25, 1, -1.62921e-07, 1.62921e-07, 1.62921e-07, 1)
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rotator:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5l76"]
+[sub_resource type="Animation" id="Animation_elqg8"]
+resource_name = "go"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotator:surface_material_override/0:emission_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rotator:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly8d4"]
 _data = {
-"CubeAction-loop": SubResource("Animation_muoda")
+"RESET": SubResource("Animation_gr0ym"),
+"go": SubResource("Animation_elqg8")
 }
 
 [node name="PickleBallCubeCollision" instance=ExtResource("1_bh2ri")]
@@ -168,19 +243,26 @@ _data = {
 transform = Transform3D(1.22773, 0, 0, 0, 1.22773, 0, 0, 0, 1.22773, 0, 0, 0)
 shape = SubResource("BoxShape3D_f53gw")
 
-[node name="GD_mesh" type="MeshInstance3D" parent="." index="1"]
+[node name="hex ball" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.637753, 0, 0, 0, 0.637753, 0, 0, 0, 0.637753, 0, 0, 0)
 mesh = SubResource("ArrayMesh_oij28")
 skeleton = NodePath("")
 
-[node name="Cube" type="MeshInstance3D" parent="." index="2"]
+[node name="rotator" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(0.100624, 0, 0, 0, 0.100624, 0, 0, 0, 0.100624, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vr3ia")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ome4y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-root_node = NodePath("")
 libraries = {
-"": SubResource("AnimationLibrary_b5l76")
+"": SubResource("AnimationLibrary_ly8d4")
 }
-autoplay = "CubeAction-loop"
+script = ExtResource("5_2m5e7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource("6_uey12")
+volume_db = -22.572
+
+[connection signal="grabbed" from="." to="AnimationPlayer" method="_on_pickle_ball_cube_collision_grabbed"]
+[connection signal="released" from="." to="AnimationPlayer" method="_on_pickle_ball_cube_collision_released"]
