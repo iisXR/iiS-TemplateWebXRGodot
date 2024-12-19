@@ -2,21 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cghv0ef8sl5gd"
-path.s3tc="res://.godot/imported/sky111.jpg-7550e7a2e53d014d7a222cbd2a1d6cd6.s3tc.ctex"
+uid="uid://dhfryd7qo8ft"
+path="res://.godot/imported/orbii_Metal007_2K-JPG_Metalness-Metal007_2K-JPG_Roughness.jpg-4ad50e68f761715a70b925f10e4dd877.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
+}
+generator_parameters={
+"md5": "9a623fb8bd2ea38fb6ce304a529fe5a3"
 }
 
 [deps]
 
-source_file="res://assets/sky111.jpg"
-dest_files=["res://.godot/imported/sky111.jpg-7550e7a2e53d014d7a222cbd2a1d6cd6.s3tc.ctex"]
+source_file="res://GVassets/orbii_Metal007_2K-JPG_Metalness-Metal007_2K-JPG_Roughness.jpg"
+dest_files=["res://.godot/imported/orbii_Metal007_2K-JPG_Metalness-Metal007_2K-JPG_Roughness.jpg-4ad50e68f761715a70b925f10e4dd877.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
